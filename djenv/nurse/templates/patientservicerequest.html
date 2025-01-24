@@ -1,0 +1,291 @@
+
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'images/favicon.png' %} " type="image/x-icon">
+
+  <title>MedAssist</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <div class="hero_bg_box">
+      <div class="img-box">
+        <img src="{%  static 'images/slider3.jpg' %}" alt="">
+      </div>
+    </div>
+
+    <header class="header_section">
+      <div class="header_top">
+        <div class="container-fluid">
+          <div class="contact_link-container">
+            <a href="" class="contact_link1">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>
+                Lorem ipsum dolor sit amet,
+              </span>
+            </a>
+            <a href="" class="contact_link2">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>
+                Call : +01 1234567890
+              </span>
+            </a>
+            <a href="" class="contact_link3">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>
+                demo@gmail.com
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="index.html">
+              <span>
+                MedAssist
+              </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""></span>
+            </button>
+
+            <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                  </li> 
+                 
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}"> About</a>
+                  </li> 
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'patientprofile' %}">Profile</a>
+                    </li> 
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'servicerequest' %}">service request</a>
+                    </li> 
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'patientservice' %}">view service request</a>
+                    </li> 
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'service' %}"> Services </a>
+                  </li> 
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'nurse' %}"> Nurses </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                  </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    
+    <!-- end slider section -->
+  
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container">
+        <h2>My Service Requests</h2>
+        {% if service_requests %}
+            <table class="table">
+                <tr>
+                    <th>Service Type</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Requested At</th>
+                    <th>Complete status</th>
+                </tr>
+                {% for request in service_requests %}
+                <tr>
+                    <td>{{ request.service_type }}</td>
+                    <td>{{ request.description }}</td>
+                    <td>{{ request.status }}</td>
+                    <td>{{ request.created_at }}</td>
+                    <td>{{request.completestatus}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>You have not submitted any service requests yet.</p>
+        {% endif %}
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- service section -->
+
+
+  <!-- end service section -->
+
+
+  <!-- client section -->
+
+
+  <!-- end client section -->
+
+  
+ 
+
+  <!-- end team section -->
+
+  <!-- info section -->
+  <section class="info_section ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="info_logo">
+            <a class="navbar-brand" href="index.html">
+              <span>
+                MedAssist
+              </span>
+            </a>
+            <p>
+              The MediAssist  is a comprehensive platform designed to streamline in-home healthcare services for patients, families, and nursing professionals. It bridges the gap between clients and caregivers, offering a user-friendly solution for managing home nursing care with transparency and efficiency.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_links">
+            <h5>
+              Useful Link
+            </h5>
+            <ul>
+              <li>
+                <a href="">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  Services
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  Nurses
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  Carres
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_info">
+            <h5>
+              Contact Us
+            </h5>
+          </div>
+          <div class="info_contact">
+            <a href="" class="">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>
+                Lorem ipsum dolor sit amet,
+              </span>
+            </a>
+            <a href="" class="">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>
+                Call : +01 1234567890
+              </span>
+            </a>
+            <a href="" class="">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>
+                demo@gmail.com
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_form ">
+            <h5>
+              Newsletter
+            </h5>
+            <form action="#">
+              <input type="email" placeholder="Enter your email">
+              <button>
+                Subscribe
+              </button>
+            </form>
+            <div class="social_box">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-youtube" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info_section -->
+
+
+
+
+  <!-- footer section -->
+  <footer class="container-fluid footer_section">
+    <p>
+      &copy; <span id="currentYear"></span> All Rights Reserved. Design by
+      <a href="https://html.design/">Coding campuz </a>
+    </p>
+  </footer>
+  <!-- footer section -->
+
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+</body>
+
+</html>
